@@ -55,7 +55,7 @@ module "stage" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 0.15.1 |
+| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 0.15.2 |
 
 ## Resources
 
