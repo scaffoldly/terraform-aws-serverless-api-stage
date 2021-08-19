@@ -38,17 +38,63 @@ module "stage" {
 ```
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.33.0 |
 
 ## Providers
 
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.33.0 |
+
 ## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 0.15.2 |
 
 ## Resources
 
+| Name | Type |
+|------|------|
+| [aws_api_gateway_base_path_mapping.mapping](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_base_path_mapping) | resource |
+| [aws_api_gateway_deployment.deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_deployment) | resource |
+| [aws_api_gateway_gateway_response.cors_responses](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_gateway_response) | resource |
+| [aws_api_gateway_integration.health](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_integration) | resource |
+| [aws_api_gateway_integration_response.health_200](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_integration_response) | resource |
+| [aws_api_gateway_method.health](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method) | resource |
+| [aws_api_gateway_method_response.health_200](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method_response) | resource |
+| [aws_api_gateway_method_settings.settings](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method_settings) | resource |
+| [aws_api_gateway_resource.health](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource) | resource |
+| [aws_api_gateway_rest_api.api](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_rest_api) | resource |
+| [aws_api_gateway_stage.stage](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_stage) | resource |
+| [aws_cloudwatch_log_group.access_logs_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.execution_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+
 ## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the Serverless API | `string` | n/a | yes |
+| <a name="input_repository_name"></a> [repository\_name](#input\_repository\_name) | The GitHub Repository Name | `string` | n/a | yes |
+| <a name="input_stage"></a> [stage](#input\_stage) | The stage (e.g. live, nonlive) | `string` | n/a | yes |
+| <a name="input_stage_env_vars"></a> [stage\_env\_vars](#input\_stage\_env\_vars) | The Key-Value Pairs for all environment variables for a Service's Stage | `map(string)` | n/a | yes |
 
 ## Outputs
 
+| Name | Description |
+|------|-------------|
+| <a name="output_api_id"></a> [api\_id](#output\_api\_id) | The Rest API ID |
+| <a name="output_base_path"></a> [base\_path](#output\_base\_path) | Computed path for the service, below the domain (/{servicename}) |
+| <a name="output_domain"></a> [domain](#output\_domain) | Computed domain name (https://{domain}) |
+| <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
+| <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
+| <a name="output_stage_env_vars"></a> [stage\_env\_vars](#output\_stage\_env\_vars) | Re-output of the environment variable map |
+| <a name="output_url"></a> [url](#output\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
 <!-- END_TF_DOCS -->
