@@ -72,11 +72,13 @@ resource "aws_api_gateway_rest_api" "api" {
 }
 
 resource "aws_cloudwatch_log_group" "group" {
-  name = "/aws/apigateway/${var.repository_name}-${var.stage}"
+  name              = "/aws/apigateway/${var.repository_name}-${var.stage}"
+  retention_in_days = 1
 }
 
 resource "aws_cloudwatch_log_group" "execution_group" {
-  name = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/${var.stage}"
+  name              = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/${var.stage}"
+  retention_in_days = 1
 }
 
 resource "aws_api_gateway_gateway_response" "cors_responses" {
@@ -204,8 +206,8 @@ resource "aws_api_gateway_method_settings" "settings" {
     data_trace_enabled = true
     logging_level      = "INFO"
 
-    throttling_rate_limit  = -1
-    throttling_burst_limit = -1
+    throttling_rate_limit  = 10000
+    throttling_burst_limit = 5000
   }
 }
 
