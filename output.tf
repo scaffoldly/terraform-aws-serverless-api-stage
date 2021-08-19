@@ -13,22 +13,17 @@ output "name" {
   description = "Re-output of the stage name"
 }
 
-output "stage_env_vars" {
-  value       = var.stage_env_vars
-  description = "Re-output of the environment variable map"
-}
-
 output "domain" {
   value       = "https://${var.domain}"
   description = "Computed domain name (https://{domain})"
 }
 
 output "base_path" {
-  value       = "/${var.name}"
+  value       = "/${var.path}"
   description = "Computed path for the service, below the domain (/{servicename})"
 }
 
 output "url" {
-  value       = "https://${var.domain}/${var.name}"
+  value       = "https://${var.domain}/${var.path}"
   description = "Full HTTP url to the service (https://{domain}/{servicename})"
 }

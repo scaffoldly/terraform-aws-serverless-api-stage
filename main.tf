@@ -68,15 +68,11 @@ locals {
 }
 
 resource "aws_api_gateway_rest_api" "api" {
-  name = "${var.name}-${var.stage}"
+  name = "${var.repository_name}-${var.stage}"
 }
 
 resource "aws_cloudwatch_log_group" "group" {
-  name = "/aws/apigateway/${var.name}-${var.stage}"
-}
-
-resource "aws_cloudwatch_log_group" "access_logs_group" {
-  name = "/aws/apigateway/${var.name}-${var.stage}-access-logs"
+  name = "/aws/apigateway/${var.repository_name}-${var.stage}"
 }
 
 resource "aws_cloudwatch_log_group" "execution_group" {
@@ -185,11 +181,11 @@ resource "aws_api_gateway_stage" "stage" {
   xray_tracing_enabled = true
 
   access_log_settings {
-    destination_arn = aws_cloudwatch_log_group.access_logs_group.arn
+    destination_arn = aws_cloudwatch_log_group.group.arn
     format          = "$context.identity.sourceIp $context.identity.caller $context.identity.user [$context.requestTime] \"$context.httpMethod $context.resourcePath $context.protocol\" $context.status $context.responseLength $context.requestId"
   }
 
-  depends_on = [aws_cloudwatch_log_group.execution_group]
+  depends_on = [aws_cloudwatch_log_group.group]
 
   lifecycle {
     ignore_changes = [
@@ -217,7 +213,7 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
   api_id      = aws_api_gateway_rest_api.api.id
   stage_name  = aws_api_gateway_stage.stage.stage_name
   domain_name = var.domain
-  base_path   = var.name
+  base_path   = var.path
 }
 
 module "iam" { # TODO Rename
