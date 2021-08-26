@@ -48,13 +48,13 @@ module "stage" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.33.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.55.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 0.15.2 |
+| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.0 |
 
 ## Resources
 
