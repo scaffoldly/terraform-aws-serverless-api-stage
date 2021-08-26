@@ -111,7 +111,7 @@ module "health" {
   path                 = "health"
 
   response = {
-    healty = true
+    healthy = true
   }
 }
 
