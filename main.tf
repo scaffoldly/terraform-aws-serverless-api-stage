@@ -69,16 +69,19 @@ locals {
 
 resource "aws_api_gateway_rest_api" "api" {
   name = "${var.repository_name}-${var.stage}"
+  tags = {}
 }
 
 resource "aws_cloudwatch_log_group" "group" {
   name              = "/aws/apigateway/${var.repository_name}-${var.stage}"
   retention_in_days = 1
+  tags              = {}
 }
 
 resource "aws_cloudwatch_log_group" "execution_group" {
   name              = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/${var.stage}"
   retention_in_days = 1
+  tags              = {}
 }
 
 resource "aws_api_gateway_gateway_response" "cors_responses" {
@@ -106,10 +109,13 @@ resource "aws_api_gateway_resource" "health" {
 }
 
 resource "aws_api_gateway_method" "health" {
-  rest_api_id   = aws_api_gateway_rest_api.api.id
-  resource_id   = aws_api_gateway_resource.health.id
-  http_method   = "ANY"
-  authorization = "NONE"
+  rest_api_id          = aws_api_gateway_rest_api.api.id
+  resource_id          = aws_api_gateway_resource.health.id
+  http_method          = "ANY"
+  authorization        = "NONE"
+  authorization_scopes = []
+  request_models       = {}
+  request_parameters   = {}
 }
 
 resource "aws_api_gateway_integration" "health" {
@@ -118,6 +124,8 @@ resource "aws_api_gateway_integration" "health" {
   http_method          = aws_api_gateway_method.health.http_method
   type                 = "MOCK"
   passthrough_behavior = "WHEN_NO_MATCH"
+  cache_key_parameters = []
+  request_parameters   = {}
 
   request_templates = {
     "application/json" = <<EOF
@@ -179,6 +187,8 @@ resource "aws_api_gateway_stage" "stage" {
   stage_name    = var.stage
   rest_api_id   = aws_api_gateway_rest_api.api.id
   deployment_id = aws_api_gateway_deployment.deployment.id
+  tags          = {}
+  variables     = {}
 
   xray_tracing_enabled = true
 
@@ -200,6 +210,7 @@ resource "aws_api_gateway_method_settings" "settings" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name  = aws_api_gateway_stage.stage.stage_name
   method_path = "*/*"
+  tags        = {}
 
   settings {
     metrics_enabled    = true
@@ -218,9 +229,9 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
   base_path   = var.path
 }
 
-module "iam" { # TODO Rename
+module "iam" {
   source  = "scaffoldly/serverless-api-stage-iam/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   repository_name = var.repository_name
   stage           = var.stage
