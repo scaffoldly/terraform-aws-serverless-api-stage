@@ -102,70 +102,16 @@ resource "aws_api_gateway_gateway_response" "cors_responses" {
   }
 }
 
-resource "aws_api_gateway_resource" "health" {
-  rest_api_id = aws_api_gateway_rest_api.api.id
-  parent_id   = aws_api_gateway_rest_api.api.root_resource_id
-  path_part   = "health"
-}
+module "health" {
+  source  = "scaffoldly/api-gateway-static-endpoint/aws"
+  version = "1.0.0"
 
-resource "aws_api_gateway_method" "health" {
-  rest_api_id          = aws_api_gateway_rest_api.api.id
-  resource_id          = aws_api_gateway_resource.health.id
-  http_method          = "ANY"
-  authorization        = "NONE"
-  authorization_scopes = []
-  request_models       = {}
-  request_parameters   = {}
-}
+  api_id               = aws_api_gateway_rest_api.api.id
+  api_root_resource_id = aws_api_gateway_rest_api.api.root_resource_id
+  path                 = "health"
 
-resource "aws_api_gateway_integration" "health" {
-  rest_api_id          = aws_api_gateway_rest_api.api.id
-  resource_id          = aws_api_gateway_resource.health.id
-  http_method          = aws_api_gateway_method.health.http_method
-  type                 = "MOCK"
-  passthrough_behavior = "WHEN_NO_MATCH"
-  cache_key_parameters = []
-  request_parameters   = {}
-
-  request_templates = {
-    "application/json" = <<EOF
-{"statusCode": 200}
-EOF
-  }
-}
-
-resource "aws_api_gateway_method_response" "health_200" {
-  rest_api_id = aws_api_gateway_rest_api.api.id
-  resource_id = aws_api_gateway_resource.health.id
-  http_method = aws_api_gateway_method.health.http_method
-  status_code = "200"
-
-  response_models = {
-    "application/json" = "Empty"
-  }
-
-  response_parameters = {
-    "method.response.header.Access-Control-Allow-Headers" = true
-    "method.response.header.Access-Control-Allow-Methods" = true
-    "method.response.header.Access-Control-Allow-Origin"  = true
-  }
-}
-
-resource "aws_api_gateway_integration_response" "health_200" {
-  rest_api_id       = aws_api_gateway_rest_api.api.id
-  resource_id       = aws_api_gateway_resource.health.id
-  http_method       = aws_api_gateway_method.health.http_method
-  status_code       = aws_api_gateway_method_response.health_200.status_code
-  selection_pattern = "200"
-
-  response_templates = {
-    "application/json" = ""
-  }
-
-  response_parameters = {
-    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
-    "method.response.header.Access-Control-Allow-Methods" = "'OPTIONS,GET,HEAD,PUT,POST,PATCH,DELETE'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  response = {
+    healty = true
   }
 }
 
@@ -179,7 +125,7 @@ resource "aws_api_gateway_deployment" "deployment" {
   }
 
   depends_on = [
-    aws_api_gateway_integration_response.health_200,
+    module.health
   ]
 }
 
