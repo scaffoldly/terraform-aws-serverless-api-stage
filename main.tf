@@ -176,7 +176,7 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
 
 module "iam" {
   source  = "scaffoldly/serverless-api-stage-iam/aws"
-  version = "1.0.1"
+  version = "1.0.2"
 
   repository_name = var.repository_name
   stage           = var.stage
