@@ -55,7 +55,7 @@ module "stage" {
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.0 |
-| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.1 |
+| <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.2 |
 
 ## Resources
 
