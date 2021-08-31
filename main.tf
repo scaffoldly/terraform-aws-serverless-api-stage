@@ -104,7 +104,7 @@ resource "aws_api_gateway_gateway_response" "cors_responses" {
 
 module "health" {
   source  = "scaffoldly/api-gateway-static-endpoint/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   api_id               = aws_api_gateway_rest_api.api.id
   api_root_resource_id = aws_api_gateway_rest_api.api.root_resource_id
@@ -113,6 +113,10 @@ module "health" {
   response = {
     healthy = true
   }
+  
+  depends_on = [
+    aws_api_gateway_rest_api.api
+  ]
 }
 
 resource "aws_api_gateway_deployment" "deployment" {
