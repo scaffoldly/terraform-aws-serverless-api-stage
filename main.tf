@@ -182,7 +182,7 @@ module "websocket" {
   count = var.websocket ? 1 : 0
 
   source  = "scaffoldly/serverless-api-stage-websocket/aws"
-  version = "1.0.3"
+  version = "1.0.4"
 
   repository_name = var.repository_name
   path            = var.path
