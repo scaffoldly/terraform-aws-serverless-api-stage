@@ -27,8 +27,3 @@ variable "websocket_domain" {
   default     = ""
 }
 
-variable "websocket_domain_id" {
-  type        = string
-  description = "(Optional) The domain id for the websocket, required if websocket_domain is set"
-  default     = ""
-}
