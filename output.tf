@@ -29,11 +29,11 @@ output "url" {
 }
 
 output "websocket_api_id" {
-  value       = var.websocket ? module.websocket.api_id : null
+  value       = var.websocket ? module.websocket[0].api_id : null
   description = "The websocket API ID, if enabled, otherwise null"
 }
 
 output "websocket_url" {
-  value       = var.websocket ? module.websocket.url : null
+  value       = var.websocket ? module.websocket[0].url : null
   description = "The websocket URL, if enabled, otherwise null"
 }
