@@ -15,3 +15,20 @@ variable "stage" {
   description = "The stage (e.g. live, nonlive)"
 }
 
+variable "websocket" {
+  type        = bool
+  description = "(Optional) Enable a websocket for this stage"
+  default     = false
+}
+
+variable "websocket_domain" {
+  type        = string
+  description = "(Optional) The custom domain for the websocket (if using a custom domain)"
+  default     = ""
+}
+
+variable "websocket_domain_id" {
+  type        = string
+  description = "(Optional) The domain id for the websocket, required if websocket_domain is set"
+  default     = ""
+}

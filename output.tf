@@ -27,3 +27,13 @@ output "url" {
   value       = "https://${var.domain}/${var.path}"
   description = "Full HTTP url to the service (https://{domain}/{servicename})"
 }
+
+output "websocket_api_id" {
+  value       = var.websocket ? module.websocket.api_id : null
+  description = "The websocket API ID, if enabled, otherwise null"
+}
+
+output "websocket_url" {
+  value       = var.websocket ? module.websocket.url : null
+  description = "The websocket URL, if enabled, otherwise null"
+}
