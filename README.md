@@ -56,7 +56,7 @@ module "stage" {
 |------|--------|---------|
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.2 |
-| <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.2 |
+| <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.3 |
 
 ## Resources
 
@@ -81,7 +81,6 @@ module "stage" {
 | <a name="input_stage"></a> [stage](#input\_stage) | The stage (e.g. live, nonlive) | `string` | n/a | yes |
 | <a name="input_websocket"></a> [websocket](#input\_websocket) | (Optional) Enable a websocket for this stage | `bool` | `false` | no |
 | <a name="input_websocket_domain"></a> [websocket\_domain](#input\_websocket\_domain) | (Optional) The custom domain for the websocket (if using a custom domain) | `string` | `""` | no |
-| <a name="input_websocket_domain_id"></a> [websocket\_domain\_id](#input\_websocket\_domain\_id) | (Optional) The domain id for the websocket, required if websocket\_domain is set | `string` | `""` | no |
 
 ## Outputs
 
