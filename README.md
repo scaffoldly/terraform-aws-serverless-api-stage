@@ -56,7 +56,7 @@ module "stage" {
 |------|--------|---------|
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.2 |
-| <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.4 |
+| <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.5 |
 
 ## Resources
 
