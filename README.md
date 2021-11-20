@@ -56,6 +56,7 @@ module "stage" {
 |------|--------|---------|
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.2 |
+| <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.2 |
 
 ## Resources
 
@@ -78,6 +79,9 @@ module "stage" {
 | <a name="input_path"></a> [path](#input\_path) | The name of the Serverless API | `string` | n/a | yes |
 | <a name="input_repository_name"></a> [repository\_name](#input\_repository\_name) | The GitHub Repository Name | `string` | n/a | yes |
 | <a name="input_stage"></a> [stage](#input\_stage) | The stage (e.g. live, nonlive) | `string` | n/a | yes |
+| <a name="input_websocket"></a> [websocket](#input\_websocket) | (Optional) Enable a websocket for this stage | `bool` | `false` | no |
+| <a name="input_websocket_domain"></a> [websocket\_domain](#input\_websocket\_domain) | (Optional) The custom domain for the websocket (if using a custom domain) | `string` | `""` | no |
+| <a name="input_websocket_domain_id"></a> [websocket\_domain\_id](#input\_websocket\_domain\_id) | (Optional) The domain id for the websocket, required if websocket\_domain is set | `string` | `""` | no |
 
 ## Outputs
 
@@ -89,4 +93,6 @@ module "stage" {
 | <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
 | <a name="output_url"></a> [url](#output\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
+| <a name="output_websocket_api_id"></a> [websocket\_api\_id](#output\_websocket\_api\_id) | The websocket API ID, if enabled, otherwise null |
+| <a name="output_websocket_url"></a> [websocket\_url](#output\_websocket\_url) | The websocket URL, if enabled, otherwise null |
 <!-- END_TF_DOCS -->
