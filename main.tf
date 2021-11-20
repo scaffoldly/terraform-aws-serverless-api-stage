@@ -184,12 +184,11 @@ module "websocket" {
   source  = "scaffoldly/serverless-api-stage-websocket/aws"
   version = "1.0.3"
 
-  repository_name  = var.repository_name
-  path             = var.path
-  stage            = var.stage
-  logs_arn         = aws_cloudwatch_log_group.group.arn
-  websocket        = var.websocket
-  websocket_domain = var.websocket_domain
+  repository_name = var.repository_name
+  path            = var.path
+  stage           = var.stage
+  logs_arn        = aws_cloudwatch_log_group.group.arn
+  domain          = var.websocket_domain
 }
 
 module "iam" {
