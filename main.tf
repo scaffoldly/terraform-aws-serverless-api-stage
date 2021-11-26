@@ -198,7 +198,7 @@ module "websocket" {
 
 module "iam" {
   source  = "scaffoldly/serverless-api-stage-iam/aws"
-  version = "1.0.4"
+  version = "1.0.5"
 
   repository_name = var.repository_name
   stage           = var.stage
@@ -214,8 +214,8 @@ resource "aws_sns_topic_policy" "policy" {
 
   policy = templatefile("${path.module}/topic_policy.json.tpl", {
     topic_arn             = aws_sns_topic.topic.arn
-    read_only_principals  = [local.root_arn, "arn:*:iam::*:role/*-nonlive"]
-    read_write_principals = [local.root_arn, module.iam.role_arn]
-    write_only_principals = [local.root_arn]
+    read_only_principals  = jsonencode([local.root_arn, "arn:*:iam::*:role/*-nonlive"])
+    read_write_principals = jsonencode([local.root_arn, module.iam.role_arn])
+    write_only_principals = jsonencode([local.root_arn])
   })
 }
