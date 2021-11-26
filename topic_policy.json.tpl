@@ -2,6 +2,22 @@
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "read-only-pattern",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "sns:Subscribe"
+      ],
+      "Resource": "${topic_arn}",
+      "Condition": {
+        "ArnLike": {
+          "aws:SourceArn": "${read_only_pattern}"
+        }
+      }
+    },
+    {
       "Sid": "read-only",
       "Effect": "Allow",
       "Principal": {
