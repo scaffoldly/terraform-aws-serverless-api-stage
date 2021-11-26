@@ -27,3 +27,8 @@ variable "websocket_domain" {
   default     = ""
 }
 
+variable "root_principal" {
+  type        = string
+  default     = "root"
+  description = "The root prinicipal. In most cases leave this as 'root'"
+}

@@ -37,3 +37,11 @@ output "websocket_url" {
   value       = var.websocket ? module.websocket[0].url : null
   description = "The websocket URL, if enabled, otherwise null"
 }
+
+output "role_arn" {
+  value = module.iam.role_arn
+}
+
+output "topic_arn" {
+  value = aws_sns_topic.topic.arn
+}
