@@ -75,6 +75,10 @@ locals {
 resource "aws_api_gateway_rest_api" "api" {
   name = "${var.repository_name}-${var.stage}"
   tags = {}
+
+  endpoint_configuration {
+    types = [var.regional ? "REGIONAL" : "EDGE"]
+  }
 }
 
 resource "aws_cloudwatch_log_group" "group" {

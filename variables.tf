@@ -15,6 +15,11 @@ variable "stage" {
   type        = string
   description = "The stage (e.g. live, nonlive)"
 }
+variable "regional" {
+  type        = bool
+  description = "If true, create a regional Serverless API"
+  default     = false
+}
 variable "websocket" {
   type        = bool
   description = "(Optional) Enable a websocket for this stage"
