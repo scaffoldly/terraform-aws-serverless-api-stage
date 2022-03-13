@@ -81,6 +81,7 @@ module "stage" {
 |------|-------------|------|---------|:--------:|
 | <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | `""` | no |
 | <a name="input_path"></a> [path](#input\_path) | The name of the Serverless API | `string` | n/a | yes |
+| <a name="input_regional"></a> [regional](#input\_regional) | If true, create a regional Serverless API | `bool` | `false` | no |
 | <a name="input_repository_name"></a> [repository\_name](#input\_repository\_name) | The GitHub Repository Name | `string` | n/a | yes |
 | <a name="input_root_principal"></a> [root\_principal](#input\_root\_principal) | The root prinicipal. In most cases leave this as 'root' | `string` | `"root"` | no |
 | <a name="input_stage"></a> [stage](#input\_stage) | The stage (e.g. live, nonlive) | `string` | n/a | yes |
