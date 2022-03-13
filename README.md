@@ -79,7 +79,7 @@ module "stage" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | n/a | yes |
+| <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | `""` | no |
 | <a name="input_path"></a> [path](#input\_path) | The name of the Serverless API | `string` | n/a | yes |
 | <a name="input_repository_name"></a> [repository\_name](#input\_repository\_name) | The GitHub Repository Name | `string` | n/a | yes |
 | <a name="input_root_principal"></a> [root\_principal](#input\_root\_principal) | The root prinicipal. In most cases leave this as 'root' | `string` | `"root"` | no |
@@ -95,6 +95,7 @@ module "stage" {
 | <a name="output_base_path"></a> [base\_path](#output\_base\_path) | Computed path for the service, below the domain (/{servicename}) |
 | <a name="output_domain"></a> [domain](#output\_domain) | Computed domain name (https://{domain}) |
 | <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
+| <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
 | <a name="output_topic_arn"></a> [topic\_arn](#output\_topic\_arn) | n/a |
