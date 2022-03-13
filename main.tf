@@ -177,6 +177,8 @@ resource "aws_api_gateway_method_settings" "settings" {
 }
 
 resource "aws_api_gateway_base_path_mapping" "mapping" {
+  count = var.domain != "" ? 1 : 0
+
   api_id      = aws_api_gateway_rest_api.api.id
   stage_name  = aws_api_gateway_stage.stage.stage_name
   domain_name = var.domain

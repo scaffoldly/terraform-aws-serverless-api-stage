@@ -28,6 +28,11 @@ output "url" {
   description = "Full HTTP url to the service (https://{domain}/{servicename})"
 }
 
+output "rest_url" {
+  value       = var.domain ? "https://${var.domain}/${var.path}" : aws_api_gateway_stage.stage.invoke_url
+  description = "Full HTTP url to the service (https://{domain}/{servicename})"
+}
+
 output "websocket_api_id" {
   value       = var.websocket ? module.websocket[0].api_id : null
   description = "The websocket API ID, if enabled, otherwise null"
