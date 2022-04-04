@@ -96,7 +96,7 @@ module "stage" {
 | <a name="output_base_path"></a> [base\_path](#output\_base\_path) | Computed path for the service, below the domain (/{servicename}) |
 | <a name="output_domain"></a> [domain](#output\_domain) | Computed domain name (https://{domain}) |
 | <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
-| <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
+| <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service |
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
 | <a name="output_topic_arn"></a> [topic\_arn](#output\_topic\_arn) | n/a |
