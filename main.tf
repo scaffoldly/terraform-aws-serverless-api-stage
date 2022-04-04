@@ -190,7 +190,7 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
 }
 
 module "websocket" {
-  count = var.websocket ? 1 : 0
+  count = var.websocket == true ? 1 : 0
 
   source  = "scaffoldly/serverless-api-stage-websocket/aws"
   version = "1.0.7"
