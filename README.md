@@ -54,7 +54,7 @@ module "stage" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bucket"></a> [bucket](#module\_bucket) | scaffoldly/s3-private-versioned/aws | 1.0.1 |
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | scaffoldly/s3-private-versioned/aws | 1.0.2 |
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.5 |
 | <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.7 |
@@ -101,6 +101,7 @@ module "stage" {
 | <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service |
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
+| <a name="output_s3_topic_arn"></a> [s3\_topic\_arn](#output\_s3\_topic\_arn) | n/a |
 | <a name="output_topic_arn"></a> [topic\_arn](#output\_topic\_arn) | n/a |
 | <a name="output_url"></a> [url](#output\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
 | <a name="output_websocket_api_id"></a> [websocket\_api\_id](#output\_websocket\_api\_id) | The websocket API ID, if enabled, otherwise null |
