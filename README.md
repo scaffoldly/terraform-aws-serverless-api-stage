@@ -54,6 +54,7 @@ module "stage" {
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | scaffoldly/s3-private-versioned/aws | 1.0.1 |
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.5 |
 | <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.7 |
@@ -94,6 +95,7 @@ module "stage" {
 |------|-------------|
 | <a name="output_api_id"></a> [api\_id](#output\_api\_id) | The Rest API ID |
 | <a name="output_base_path"></a> [base\_path](#output\_base\_path) | Computed path for the service, below the domain (/{servicename}) |
+| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | n/a |
 | <a name="output_domain"></a> [domain](#output\_domain) | Computed domain name (https://{domain}) |
 | <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
 | <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service |
