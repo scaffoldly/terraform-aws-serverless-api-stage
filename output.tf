@@ -54,3 +54,7 @@ output "topic_arn" {
 output "bucket_name" {
   value = module.bucket.bucket_name
 }
+
+output "s3_topic_arn" {
+  value = module.bucket.topic_arns[0]
+}

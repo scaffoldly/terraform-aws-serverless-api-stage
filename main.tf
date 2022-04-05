@@ -229,7 +229,7 @@ resource "aws_sns_topic_policy" "policy" {
 
 module "bucket" {
   source  = "scaffoldly/s3-private-versioned/aws"
-  version = "1.0.1"
+  version = "1.0.2"
 
   bucket_name_prefix = "${var.stage}-${var.repository_name}"
 
