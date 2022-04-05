@@ -226,3 +226,16 @@ resource "aws_sns_topic_policy" "policy" {
     write_only_principals = jsonencode([local.root_arn])
   })
 }
+
+module "bucket" {
+  source  = "scaffoldly/s3-private-versioned/aws"
+  version = "1.0.1"
+
+  bucket_name_prefix = "${var.stage}-${var.repository_name}"
+
+  read_write_principals = [
+    module.iam.role_arn
+  ]
+
+  notification_prefixes = [""]
+}

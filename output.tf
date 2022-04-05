@@ -50,3 +50,7 @@ output "role_arn" {
 output "topic_arn" {
   value = aws_sns_topic.topic.arn
 }
+
+output "bucket_name" {
+  value = module.bucket.bucket_name
+}
