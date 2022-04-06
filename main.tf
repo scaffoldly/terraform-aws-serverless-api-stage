@@ -204,10 +204,11 @@ module "websocket" {
 
 module "iam" {
   source  = "scaffoldly/serverless-api-stage-iam/aws"
-  version = "1.0.5"
+  version = "1.0.6"
 
   repository_name = var.repository_name
   stage           = var.stage
+  kms_key_id      = var.stage_kms_key_id
 }
 
 resource "aws_sns_topic" "topic" {

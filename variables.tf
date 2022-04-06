@@ -35,3 +35,8 @@ variable "root_principal" {
   default     = "root"
   description = "The root prinicipal. In most cases leave this as 'root'"
 }
+variable "stage_kms_key_id" {
+  type        = string
+  default     = ""
+  description = "The KMS Key ID for the stage (optional)"
+}
