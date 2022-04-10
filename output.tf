@@ -52,9 +52,9 @@ output "topic_arn" {
 }
 
 output "bucket_name" {
-  value = var.create_bucket ? module.bucket.bucket_name : null
+  value = var.create_bucket ? module.bucket[0].bucket_name : null
 }
 
 output "s3_topic_arn" {
-  value = var.create_bucket ? module.bucket.topic_arns[0] : null
+  value = var.create_bucket ? module.bucket[0].topic_arns[0] : null
 }
