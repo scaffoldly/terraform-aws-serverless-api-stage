@@ -80,6 +80,8 @@ module "stage" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_create_bucket"></a> [create\_bucket](#input\_create\_bucket) | Create an S3 Bucket for the Service | `bool` | `true` | no |
+| <a name="input_create_topic"></a> [create\_topic](#input\_create\_topic) | Create SNS Topics for the service | `bool` | `true` | no |
 | <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | `""` | no |
 | <a name="input_path"></a> [path](#input\_path) | The name of the Serverless API | `string` | `""` | no |
 | <a name="input_regional"></a> [regional](#input\_regional) | If true, create a regional Serverless API | `bool` | `false` | no |
