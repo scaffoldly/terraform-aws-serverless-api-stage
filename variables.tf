@@ -10,6 +10,7 @@ variable "repository_name" {
 variable "path" {
   type        = string
   description = "The name of the Serverless API"
+  default     = ""
 }
 variable "stage" {
   type        = string
