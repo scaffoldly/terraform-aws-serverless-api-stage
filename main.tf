@@ -212,15 +212,19 @@ module "iam" {
 }
 
 resource "aws_sns_topic" "topic" {
+  count = var.create_topic ? 1 : 0
+
   name         = "${var.stage}-${var.repository_name}"
   display_name = "${var.stage}-${var.repository_name}"
 }
 
 resource "aws_sns_topic_policy" "policy" {
-  arn = aws_sns_topic.topic.arn
+  count = var.create_topic ? 1 : 0
+
+  arn = aws_sns_topic.topic[0].arn
 
   policy = templatefile("${path.module}/topic_policy.json.tpl", {
-    topic_arn             = aws_sns_topic.topic.arn
+    topic_arn             = aws_sns_topic.topic[0].arn
     read_only_pattern     = "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:role/*-nonlive"
     read_only_principals  = jsonencode([local.root_arn])
     read_write_principals = jsonencode([local.root_arn, module.iam.role_arn])
@@ -229,6 +233,8 @@ resource "aws_sns_topic_policy" "policy" {
 }
 
 module "bucket" {
+  count = var.create_bucket ? 1 : 0
+
   source  = "scaffoldly/s3-private-versioned/aws"
   version = "1.0.2"
 

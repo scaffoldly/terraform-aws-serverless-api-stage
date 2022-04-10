@@ -41,3 +41,13 @@ variable "stage_kms_key_id" {
   default     = ""
   description = "The KMS Key ID for the stage (optional)"
 }
+variable "create_bucket" {
+  type        = bool
+  default     = true
+  description = "Create an S3 Bucket for the Service"
+}
+variable "create_topic" {
+  type        = bool
+  default     = true
+  description = "Create SNS Topics for the service"
+}
