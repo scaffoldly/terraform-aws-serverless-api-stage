@@ -48,13 +48,13 @@ output "role_arn" {
 }
 
 output "topic_arn" {
-  value = aws_sns_topic.topic.arn
+  value = var.create_topic ? aws_sns_topic.topic[0].arn : null
 }
 
 output "bucket_name" {
-  value = module.bucket.bucket_name
+  value = var.create_bucket ? module.bucket.bucket_name : null
 }
 
 output "s3_topic_arn" {
-  value = module.bucket.topic_arns[0]
+  value = var.create_bucket ? module.bucket.topic_arns[0] : null
 }
