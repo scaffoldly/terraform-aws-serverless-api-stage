@@ -236,7 +236,7 @@ module "bucket" {
   count = var.create_bucket ? 1 : 0
 
   source  = "scaffoldly/s3-private-versioned/aws"
-  version = "1.0.2"
+  version = "1.0.3"
 
   bucket_name_prefix = "${var.stage}-${var.repository_name}"
 
@@ -245,4 +245,5 @@ module "bucket" {
   ]
 
   notification_prefixes = [""]
+  public_access         = var.bucket_allow_public_access
 }

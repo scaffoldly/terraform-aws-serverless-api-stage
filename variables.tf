@@ -46,6 +46,11 @@ variable "create_bucket" {
   default     = true
   description = "Create an S3 Bucket for the Service"
 }
+variable "bucket_allow_public_access" {
+  type        = bool
+  default     = false
+  description = "Allow Objects in the bucket with a Public ACL"
+}
 variable "create_topic" {
   type        = bool
   default     = true
