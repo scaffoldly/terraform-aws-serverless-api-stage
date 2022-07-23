@@ -51,6 +51,11 @@ variable "bucket_allow_public_access" {
   default     = false
   description = "Allow Objects in the bucket with a Public ACL"
 }
+variable "bucket_name" {
+  type        = string
+  default     = ""
+  description = "Set the bucket name, default: var.repository_name"
+}
 variable "create_topic" {
   type        = bool
   default     = true
