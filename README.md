@@ -54,7 +54,7 @@ module "stage" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bucket"></a> [bucket](#module\_bucket) | scaffoldly/s3-private-versioned/aws | 1.0.2 |
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | scaffoldly/s3-private-versioned/aws | 1.0.3 |
 | <a name="module_health"></a> [health](#module\_health) | scaffoldly/api-gateway-static-endpoint/aws | 1.0.1 |
 | <a name="module_iam"></a> [iam](#module\_iam) | scaffoldly/serverless-api-stage-iam/aws | 1.0.7 |
 | <a name="module_websocket"></a> [websocket](#module\_websocket) | scaffoldly/serverless-api-stage-websocket/aws | 1.0.7 |
@@ -80,6 +80,7 @@ module "stage" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_bucket_allow_public_access"></a> [bucket\_allow\_public\_access](#input\_bucket\_allow\_public\_access) | Allow Objects in the bucket with a Public ACL | `bool` | `false` | no |
 | <a name="input_create_bucket"></a> [create\_bucket](#input\_create\_bucket) | Create an S3 Bucket for the Service | `bool` | `true` | no |
 | <a name="input_create_topic"></a> [create\_topic](#input\_create\_topic) | Create SNS Topics for the service | `bool` | `true` | no |
 | <a name="input_domain"></a> [domain](#input\_domain) | The domain for the Serverless API | `string` | `""` | no |
