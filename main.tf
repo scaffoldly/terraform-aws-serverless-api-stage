@@ -236,10 +236,10 @@ module "bucket" {
   count = var.create_bucket ? 1 : 0
 
   source  = "scaffoldly/s3-private-versioned/aws"
-  version = "1.0.4"
+  version = "1.0.5"
 
   bucket_name_prefix        = var.bucket_name != "" ? var.bucket_name : "${var.stage}-${var.repository_name}"
-  bucket_name_random_suffix = var.bucket_name != "" ? true : false
+  bucket_name_random_suffix = var.bucket_name == "" ? true : false
 
   read_write_principals = [
     module.iam.role_arn
