@@ -239,7 +239,7 @@ module "bucket" {
   version = "1.0.4"
 
   bucket_name_prefix        = var.bucket_name != "" ? var.bucket_name : "${var.stage}-${var.repository_name}"
-  bucket_name_random_suffix = var.bucket_name != "" ? false : true
+  bucket_name_random_suffix = var.bucket_name != "" ? true : false
 
   read_write_principals = [
     module.iam.role_arn
