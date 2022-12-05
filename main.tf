@@ -209,6 +209,7 @@ module "iam" {
   repository_name = var.repository_name
   stage           = var.stage
   kms_key_id      = var.stage_kms_key_id
+  saml_trust      = var.saml_trust
 }
 
 resource "aws_sns_topic" "topic" {
