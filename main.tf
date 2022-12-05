@@ -204,7 +204,7 @@ module "websocket" {
 
 module "iam" {
   source  = "scaffoldly/serverless-api-stage-iam/aws"
-  version = "1.0.9"
+  version = "1.0.10"
 
   repository_name = var.repository_name
   stage           = var.stage
