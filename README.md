@@ -104,6 +104,7 @@ module "stage" {
 | <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | n/a |
 | <a name="output_domain"></a> [domain](#output\_domain) | Computed domain name (https://{domain}) |
 | <a name="output_name"></a> [name](#output\_name) | Re-output of the stage name |
+| <a name="output_repository_name"></a> [repository\_name](#output\_repository\_name) | Re-output of the repository name |
 | <a name="output_rest_url"></a> [rest\_url](#output\_rest\_url) | Full HTTP url to the service |
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
