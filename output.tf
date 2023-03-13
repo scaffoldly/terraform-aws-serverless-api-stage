@@ -13,6 +13,11 @@ output "name" {
   description = "Re-output of the stage name"
 }
 
+output "repository_name" {
+  value       = var.repository_name
+  description = "Re-output of the repository name"
+}
+
 output "domain" {
   value       = "https://${var.domain}"
   description = "Computed domain name (https://{domain})"
