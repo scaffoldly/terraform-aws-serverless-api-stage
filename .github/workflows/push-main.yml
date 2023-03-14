@@ -9,11 +9,11 @@ jobs:
       fail-fast: false
       matrix:
         terraform-version:
-          - "~1.0.0"
-          - "~1.1.0"
-          - "~1.2.0"
-          - "~1.3.0"
-          - "~1.4.0"
+          - "1.0"
+          - "1.1"
+          - "1.2"
+          - "1.3"
+          - "1.4"
           - "latest"
     runs-on: ubuntu-latest
     steps:
@@ -24,9 +24,9 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ./.terraform/providers
-          key: ${{ runner.os }}-providers-${{ hashFiles('**/.terraform.lock.hcl') }}
+          key: ${{ runner.os }}-${{ matrix.terraform-version }}-providers-${{ hashFiles('**/.terraform.lock.hcl') }}
           restore-keys: |
-            ${{ runner.os }}-providers-
+            ${{ runner.os }}-${{ matrix.terraform-version }}-providers-
       - run: terraform init
       - run: terraform fmt -check -recursive -diff
       - run: terraform validate
@@ -36,7 +36,7 @@ jobs:
           chmod +x terraform-docs
         working-directory: .terraform
       - run: ./.terraform/terraform-docs markdown . --output-file README.md
-      - if: ${{ matrix.terraform-version == '~1.0.0' }}
+      - if: ${{ matrix.terraform-version == '1.0' }}
         uses: scaffoldly/bump-version-action@v1
         with:
           action: prerelease
