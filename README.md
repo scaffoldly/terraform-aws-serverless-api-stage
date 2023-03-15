@@ -109,6 +109,7 @@ module "stage" {
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | The Rest API Root Resource ID |
 | <a name="output_s3_topic_arn"></a> [s3\_topic\_arn](#output\_s3\_topic\_arn) | n/a |
+| <a name="output_stage"></a> [stage](#output\_stage) | Re-output of the var.stage |
 | <a name="output_topic_arn"></a> [topic\_arn](#output\_topic\_arn) | n/a |
 | <a name="output_url"></a> [url](#output\_url) | Full HTTP url to the service (https://{domain}/{servicename}) |
 | <a name="output_websocket_api_id"></a> [websocket\_api\_id](#output\_websocket\_api\_id) | The websocket API ID, if enabled, otherwise null |
