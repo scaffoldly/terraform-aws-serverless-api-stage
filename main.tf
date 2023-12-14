@@ -113,7 +113,7 @@ resource "aws_api_gateway_gateway_response" "cors_responses" {
 
 module "health" {
   source  = "scaffoldly/api-gateway-static-endpoint/aws"
-  version = "1.0.2"
+  version = "1.0.3"
 
   api_id               = aws_api_gateway_rest_api.api.id
   api_root_resource_id = aws_api_gateway_rest_api.api.root_resource_id
@@ -193,7 +193,7 @@ module "websocket" {
   count = var.websocket == true ? 1 : 0
 
   source  = "scaffoldly/serverless-api-stage-websocket/aws"
-  version = "1.0.8"
+  version = "1.0.9"
 
   repository_name = var.repository_name
   path            = var.path
@@ -237,7 +237,7 @@ module "bucket" {
   count = var.create_bucket ? 1 : 0
 
   source  = "scaffoldly/s3-private-versioned/aws"
-  version = "1.0.6"
+  version = "1.0.9"
 
   bucket_name_prefix        = var.bucket_name != "" ? var.bucket_name : "${var.stage}-${var.repository_name}"
   bucket_name_random_suffix = var.bucket_name == "" ? true : false
