@@ -3,21 +3,24 @@
   "version": "1.0.44",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "codegen": "cdktf get -o src"
   },
   "engines": {
     "node": ">=18"
   },
   "files": [
-    "src"
+    "dist"
   ],
-  "main": "src/modules/scaffoldly/aws/serverless-api-stage.ts",
+  "main": "dist/serverless-api-stage.js",
   "devDependencies": {
     "@cdktf/provider-aws": "^18.2.0",
     "cdktf": "^0.19.2",
-    "cdktf-cli": "^0.19.2"
+    "cdktf-cli": "^0.19.2",
+    "typescript": "5"
   },
   "peerDependencies": {
     "cdktf": "*"
-  }
+  },
+  "dependencies": {}
 }
