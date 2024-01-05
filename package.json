@@ -1,6 +1,6 @@
 {
   "name": "@scaffoldly/terraform-aws-serverless-api-stage",
-  "version": "1.0.42-3",
+  "version": "1.0.42-4",
   "type": "module",
   "scripts": {
     "codegen": "cdktf get -o src"
