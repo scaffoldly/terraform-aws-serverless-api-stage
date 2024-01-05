@@ -5,6 +5,9 @@
   "scripts": {
     "codegen": "cdktf get -o src"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "src/modules/scaffoldly/aws"
   ],
