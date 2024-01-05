@@ -1,6 +1,6 @@
 {
   "name": "@scaffoldly/terraform-aws-serverless-api-stage",
-  "version": "1.0.49",
+  "version": "1.0.50-0",
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
