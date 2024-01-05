@@ -10,6 +10,10 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: "1.0"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "yarn"
       - uses: actions/cache@v2
         with:
           path: ./.terraform/providers
@@ -24,3 +28,9 @@ jobs:
           action: postrelease
           version-file: package.json
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: jq -r '.version' package.json | xargs -I {} sed -i 's/@latest/@{}/g' cdktf.json
+      - run: yarn
+      - run: yarn codegen
+      - run: yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
