@@ -31,12 +31,12 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: jq -r '.version' package.json | xargs -I {} sed -i 's/@latest/@{}/g' cdktf.json
       - run: yarn
-      - run: yarn build
       - uses: nick-fields/retry@v2
         with:
           timeout_minutes: 10
           max_attempts: 10
           command: yarn codegen
+      - run: yarn build
       - run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
