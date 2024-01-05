@@ -1,0 +1,12 @@
+{
+  "language": "typescript",
+  "app": "true",
+  "sendCrashReports": "false",
+  "terraformProviders": [],
+  "terraformModules": ["scaffoldly/serverless-api-stage/aws@latest"],
+  "context": {
+    "excludeStackIdFromLogicalIds": "true",
+    "allowSepCharsInLogicalIds": "true"
+  },
+  "projectId": "00000000-0000-0000-0000-000000000000"
+}

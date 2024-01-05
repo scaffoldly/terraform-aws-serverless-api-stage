@@ -23,6 +23,9 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ matrix.terraform-version }}
+      - uses: hashicorp/setup-node@v4
+        with:
+          node-version: "14"
       - uses: actions/cache@v2
         with:
           path: ./.terraform/providers
@@ -42,5 +45,8 @@ jobs:
         uses: scaffoldly/bump-version-action@v1
         with:
           action: prerelease
-          version-file: sly.json
+          version-file: package.json
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: jq -r '.version' package.json | xargs -I {} sed -i 's/@latest/@{}/g' cdktf.json
+      - run: yarn
+      - run: yarn codegen

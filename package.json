@@ -1,0 +1,19 @@
+{
+  "name": "@scaffoldly/terraform-aws-serverless-api-stage",
+  "version": "1.0.41",
+  "type": "module",
+  "scripts": {
+    "codegen": "cdktf get -o src"
+  },
+  "files": [
+    "src/modules/scaffoldly/aws"
+  ],
+  "devDependencies": {
+    "@cdktf/provider-aws": "^18.2.0",
+    "cdktf": "^0.19.2",
+    "cdktf-cli": "^0.19.2"
+  },
+  "peerDependencies": {
+    "cdktf": "*"
+  }
+}

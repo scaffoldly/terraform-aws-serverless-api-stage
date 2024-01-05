@@ -1,0 +1,6 @@
+{
+  "cdktf": "0.19.2",
+  "providers": {
+    "serverless-api-stage": "1.0.41"
+  }
+}
