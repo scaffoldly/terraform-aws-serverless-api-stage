@@ -2,3 +2,5 @@
 *.tfstate.backup
 
 node_modules/
+src/
+dist/
